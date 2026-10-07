@@ -3,10 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Primera Página</title>
+  <title>Tu Nombre | CV</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --side: #f3f3f3;
+    --hover: #e4e4e4;
+    --text: #111111;
+    --muted: #555555;
+    --line: #dddddd;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+
+  /* Barra lateral */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: 280px;
+    background: var(--side);
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sidebar img {
+    width: 150px; height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #cfcfcf;
+    margin-bottom: 24px;
+  }
+  .sidebar nav { width: 100%; }
+  .sidebar nav a {
+    display: block;
+    padding: 14px 16px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .sidebar nav a:hover,
+  .sidebar nav a:focus-visible { background: var(--hover); outline: none; }
+  .social { margin-top: auto; display: flex; gap: 18px; }
+  .social a { color: var(--text); text-decoration: none; font-size: 14px; }
+  .social a:hover { text-decoration: underline; }
+
+  /* Contenido */
+  main { margin-left: 280px; padding: 64px 48px; max-width: 980px; }
+  section { padding-bottom: 56px; }
+  h1 { font-size: 3rem; line-height: 1.1; margin: 0 0 8px; }
+  h2 { font-size: 1.9rem; margin: 0 0 16px; }
+  .saludo { margin: 0; font-size: 1.2rem; }
+  .rol { font-size: 1.7rem; font-weight: 700; margin: 0 0 16px; }
+  .botones { display: flex; gap: 16px; margin-top: 28px; }
+  .btn {
+    padding: 14px 20px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text);
+    background: var(--side);
+    border: 1px solid var(--side);
+  }
+  .btn.borde { background: transparent; border-color: var(--text); }
+  .btn:hover { background: var(--hover); }
+
+  /* Proyectos */
+  .proyecto {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 2px solid var(--line);
+  }
+  .proyecto .img {
+    flex: 0 0 200px; height: 120px;
+    background: var(--side);
+    border-radius: 8px;
+    display: grid; place-items: center;
+    color: var(--muted); font-size: 14px;
+  }
+  .proyecto h3 { margin: 0 0 4px; font-size: 1.3rem; }
+  .proyecto p { margin: 0; color: var(--muted); }
+
+  /* CV */
+  .item { margin-bottom: 20px; }
+  .item h3 { margin: 0; font-size: 1.1rem; }
+  .item .fecha { color: var(--muted); font-size: 0.9rem; }
+  ul.skills { padding-left: 20px; }
+
+  /* robado de un proyecto viejo*/
+  @media (max-width: 760px) {
+    .sidebar { position: static; width: 100%; flex-direction: column; }
+    .sidebar img { width: 110px; height: 110px; }
+    .social { margin-top: 12px; }
+    main { margin-left: 0; padding: 32px 20px; }
+    h1 { font-size: 2.2rem; }
+    .proyecto { flex-direction: column; }
+    .proyecto .img { flex-basis: auto; width: 100%; }
+  }
+</style>
 </head>
 <body>
-    <h1>Hola Mundo</h1>
-    <p>Este es mi primer párrafo en HTML.</p>
+
+<aside class="sidebar">
+  <img src="foto.jpg" alt="Foto de perfil">
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#cv">CV</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+  <div class="social">
+    <a href="https://github.com/AndresJLS">GitHub</a>
+    <a href="https://linkedin.com/in/No me acuerdo">LinkedIn</a>
+  </div>
+</aside>
+
+<main>
+  <section id="inicio">
+    <p class="saludo">Hola, soy</p>
+    <h1>Andres Leyva</h1>
+    <p class="rol">Estudiante de Ingeniería en Sistemas</p>
+    <p>En la actualidad me encuentro cursando la ingenieria en sistemas de informacion, me interesa desarrollarme en el area de ciberseguridad.</p>
+    <div class="botones">
+      <a class="btn" href="#contacto">Contáctame</a>
+      <a class="btn borde" href="#cv">Ver mi CV</a>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <h2>Mis proyectos</h2>
+    <article class="proyecto">
+      <div class="img">Imagen</div>
+      <div>
+        <h3>proyecto 1</h3>
+        <p>algo bello</p>
+      </div>
+    </article>
+    <article class="proyecto">
+      <div class="img">Imagen</div>
+      <div>
+        <h3>proyecto 2</h3>
+        <p>Me hice wey.</p>
+      </div>
+    </article>
+  </section>
+
+  <section id="cv">
+    <h2>CV</h2>
+    <h3>Educación</h3>
+    <div class="item">
+      <h3>Ingeniería en Sistemas de informacion</h3>
+      <div class="fecha">Universidad de Sonora, 2024 - actualidad</div>
+    </div>
+    <h3>Experiencia</h3>
+    <div class="item">
+      <h3>Puesto</h3>
+      <div class="fecha">XDXDXD</div>
+      <p>esd</p>
+    </div>
+    <h3>Habilidades</h3>
+    <ul class="skills">
+      <li>Bases de datos (MySQL)</li>
+      <li>Desarrollo web (HTML, CSS)</li>
+      <li>Python</li>
+    </ul>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Correo: <a href="andrevwl27"gmail.com">Andrevwl27"gmail.com</a></p>
+  </section>
+</main>
+
 </body>
-</html>   
+</html>
+
