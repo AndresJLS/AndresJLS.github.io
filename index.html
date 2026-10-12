@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tu Nombre | CV</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andres Leyva | CV</title>
 <style>
   :root {
     --bg: #ffffff;
@@ -41,12 +41,6 @@
     background: #cfcfcf;
     margin-bottom: 24px;
   }
-  .proyecto .img img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; 
-  border-radius: 8px;
-}  
   .sidebar nav { width: 100%; }
   .sidebar nav a {
     display: block;
@@ -67,7 +61,7 @@
   h2 { font-size: 1.9rem; margin: 0 0 16px; }
   .saludo { margin: 0; font-size: 1.2rem; }
   .rol { font-size: 1.7rem; font-weight: 700; margin: 0 0 16px; }
-  .botones { display: flex; gap: 16px; margin-top: 28px; }
+  .botones { display: flex; gap: 16px; margin-top: 28px; flex-wrap: wrap; }
   .btn {
     padding: 14px 20px;
     font-weight: 600;
@@ -87,11 +81,23 @@
     border-bottom: 2px solid var(--line);
   }
   .proyecto .img {
-    flex: 0 0 280px; height: 170px;
+    flex: 0 0 280px;
+    height: 170px;
+    overflow: hidden;          /* recorta cualquier desborde */
     background: var(--side);
     border-radius: 8px;
-    display: grid; place-items: center;
-    color: var(--muted); font-size: 14px;
+  }
+  /* el enlace ocupa todo el recuadro para que la imagen pueda calcular su alto */
+  .proyecto .img a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .proyecto .img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;       /* se ve completa; usa "cover" si prefieres que llene */
   }
   .proyecto h3 { margin: 0 0 4px; font-size: 1.3rem; }
   .proyecto p { margin: 0; color: var(--muted); }
@@ -102,7 +108,7 @@
   .item .fecha { color: var(--muted); font-size: 0.9rem; }
   ul.skills { padding-left: 20px; }
 
-  /* robado de un proyecto viejo*/
+  /* Responsive */
   @media (max-width: 760px) {
     .sidebar { position: static; width: 100%; flex-direction: column; }
     .sidebar img { width: 110px; height: 110px; }
@@ -110,7 +116,7 @@
     main { margin-left: 0; padding: 32px 20px; }
     h1 { font-size: 2.2rem; }
     .proyecto { flex-direction: column; }
-    .proyecto .img { flex-basis: auto; width: 100%; }
+    .proyecto .img { flex-basis: auto; width: 100%; height: 200px; }
   }
 </style>
 </head>
@@ -124,9 +130,11 @@
     <a href="#cv">CV</a>
     <a href="#contacto">Contacto</a>
   </nav>
+  <!-- Cuando tengas tu URL de LinkedIn, descomenta esto y pégala en el href:
   <div class="social">
-    <a href="https://linkedin.com/in/No me acuerdo">LinkedIn</a>
+    <a href="https://www.linkedin.com/in/TU-USUARIO">LinkedIn</a>
   </div>
+  -->
 </aside>
 
 <main>
@@ -138,45 +146,49 @@
     <div class="botones">
       <a class="btn" href="#contacto">Contáctame</a>
       <a class="btn borde" href="#cv">Ver mi CV</a>
-        <a class="btn borde" href="https://github.com/AndresJLS?tab=repositories">Github</a>
+      <a class="btn borde" href="https://github.com/AndresJLS?tab=repositories">Github</a>
     </div>
   </section>
 
   <section id="proyectos">
     <h2>Mis proyectos</h2>
+
     <article class="proyecto">
-  <div class="img">
-      <a href="https://github.com/AndresJLS/PollosTech-Proyecto-Final.git">
-    <img src="a.png" alt="Buscador de códigos postales">
-      </a>
-  </div>
-  <div>
-    <h3>Sistema para el manejo de empleados y proveedores</h3>
-    <p>En este proyecto, realice junto a unos compañeros, un sistema tipo CRUD para el manejo de una polleria, se puede ingresar empleados nuevos asi como modificar los existentes, tambien se puede controlar la informacion de los proveedores y los prductos a la venta</p>
-  </div>
-</article>
-   <article class="proyecto">
-  <div class="img">
-      <a href="https://github.com/AndresJLS/Codigos-postales.git">
-    <img src="b.png" alt="Codigos">
-      </a>
-  </div>
+      <div class="img">
+        <a href="https://github.com/AndresJLS/PollosTech-Proyecto-Final.git">
+          <img src="a.png" alt="Sistema de empleados y proveedores">
+        </a>
+      </div>
+      <div>
+        <h3>Sistema para el manejo de empleados y proveedores</h3>
+        <p>En este proyecto, realice junto a unos compañeros, un sistema tipo CRUD para el manejo de una polleria, se puede ingresar empleados nuevos asi como modificar los existentes, tambien se puede controlar la informacion de los proveedores y los productos a la venta</p>
+      </div>
+    </article>
+
+    <article class="proyecto">
+      <div class="img">
+        <a href="https://github.com/AndresJLS/Codigos-postales.git">
+          <img src="b.png" alt="Buscador de códigos postales">
+        </a>
+      </div>
+      <div>
         <h3>Buscador de codigos postales JAVA</h3>
-        <p>En este proyecto realize un buscador de codigos postales usando NeatBeans para programar en java, el codigo usa un archivo llamado "codigos postales" para identificar que colonias se encuentran en el codigo postal que el usurario ingrese</p>
+        <p>En este proyecto realicé un buscador de codigos postales usando NetBeans para programar en java, el codigo usa un archivo llamado "codigos postales" para identificar que colonias se encuentran en el codigo postal que el usuario ingrese</p>
+      </div>
+    </article>
+
+    <article class="proyecto">
+      <div class="img">
+        <a href="https://github.com/AndresJLS/Trabajo-de-codigo-en-java.git">
+          <img src="c.png" alt="Práctica de concurrencias en Java">
+        </a>
+      </div>
+      <div>
+        <h3>Practica de concurrencias en JAVA</h3>
+        <p>En este trabajo practique el uso y significado de las concurrencias en el lenguaje de Java tales como "SemDemo" y "AtomicDemo"</p>
       </div>
     </article>
   </section>
-     <article class="proyecto">
-  <div class="img">
-      <a href="https://github.com/AndresJLS/Trabajo-de-codigo-en-java.git">
-    <img src="c.png" alt="Java">
-      </a>
-  </div>
-  <div>
-    <h3>Practica de concurrencias en JAVA</h3>
-    <p>En este trabajo practique el uso y significado de las concurrrencias en el  lenguaje de Java tales como "SemDemo" y "AtomicDemo"</p>
-  </div>
-</article>
 
   <section id="cv">
     <h2>CV</h2>
@@ -201,10 +213,9 @@
 
   <section id="contacto">
     <h2>Contacto</h2>
-    <p>Correo: <a href="andrevwl27@gmail.com">Andrevwl27@gmail.com</a></p>
+    <p>Correo: <a href="mailto:andrevwl27@gmail.com">Andrevwl27@gmail.com</a></p>
   </section>
 </main>
 
 </body>
 </html>
-
