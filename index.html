@@ -102,6 +102,15 @@
   .proyecto h3 { margin: 0 0 4px; font-size: 1.3rem; }
   .proyecto p { margin: 0; color: var(--muted); }
 
+  /* Blog */
+  .proyecto .meta { color: var(--muted); font-size: 0.9rem; margin: 0 0 4px; }
+  .proyecto .enlace {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
   /* CV */
   .item { margin-bottom: 20px; }
   .item h3 { margin: 0; font-size: 1.1rem; }
@@ -127,6 +136,7 @@
   <nav>
     <a href="#inicio">Inicio</a>
     <a href="#proyectos">Proyectos</a>
+    <a href="#blog">Blog</a>
     <a href="#cv">CV</a>
     <a href="#contacto">Contacto</a>
   </nav>
@@ -190,18 +200,60 @@
     </article>
   </section>
 
+  <section id="blog">
+    <h2>Blog</h2>
+    <p>Aquí comparto mis diseños y proyectos hechos en Figma.</p>
+
+    <!-- Para agregar otra entrada, copia un bloque <article> completo y cambia imagen, fecha, título, texto y enlace -->
+    <article class="proyecto">
+      <div class="img">
+        <a href="https://www.figma.com/TU-ENLACE-1">
+          <img src="e.png" alt="Diseño en Figma: nombre de tu diseño">
+        </a>
+      </div>
+      <div>
+        <p class="meta">Figma · Octubre 2026</p>
+        <h3>Nombre de tu diseño</h3>
+        <p>Escribe aquí de qué trata el diseño, qué problema resuelve y qué aprendiste al hacerlo.</p>
+        <a class="enlace" href="https://www.figma.com/TU-ENLACE-1">Ver en Figma →</a>
+      </div>
+    </article>
+
+    <article class="proyecto">
+      <div class="img">
+        <a href="https://www.figma.com/TU-ENLACE-2">
+          <img src="f.png" alt="Diseño en Figma: nombre de tu segundo diseño">
+        </a>
+      </div>
+      <div>
+        <p class="meta">Figma · Fecha</p>
+        <h3>Nombre de tu segundo diseño</h3>
+        <p>Descripción breve de este otro proyecto.</p>
+        <a class="enlace" href="https://www.figma.com/TU-ENLACE-2">Ver en Figma →</a>
+      </div>
+    </article>
+  </section>
+
   <section id="cv">
     <h2>CV</h2>
     <h3>Educación</h3>
     <div class="item">
-      <h3>Ingeniería en Sistemas de informacion</h3>
+      <h3>Ingeniería en Sistemas de Información</h3>
       <div class="fecha">Universidad de Sonora, 2024 - actualidad</div>
     </div>
-    <h3>Experiencia</h3>
     <div class="item">
-      <h3>Puesto</h3>
-      <div class="fecha">XDXDXD</div>
-      <p>esd</p>
+      <h3>Técnico en Programación</h3>
+      <div class="fecha">CECyTES Plantel 1 La Manga, graduado en 2024</div>
+    </div>
+    <div class="item">
+      <h3>Secundaria</h3>
+      <div class="fecha">Secundaria Héroes de Sinaloa</div>
+    </div>
+    <h3>Experiencia académica</h3>
+    <div class="item">
+      <h3>Proyectos de programación y diseño</h3>
+      <div class="fecha">Universidad de Sonora, 2024 - actualidad</div>
+      <p>Desarrollo de un sistema CRUD en equipo para el manejo de empleados y proveedores, un buscador de códigos postales y una práctica de concurrencias en Java, además de diseños de interfaces en Figma.</p>
     </div>
     <h3>Habilidades</h3>
     <ul class="skills">
