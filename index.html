@@ -48,6 +48,17 @@
     color: var(--text);
     text-decoration: none;
   }
+  .cursor {
+  position: fixed;
+  width: 24px; height: 24px;
+  border: 2px solid var(--text);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;   
+  transition: width .15s, height .15s;
+  z-index: 9999;
+}
+.cursor.grande { width: 44px; height: 44px; }
   .sidebar nav a:hover,
   .sidebar nav a:focus-visible { background: var(--hover); outline: none; }
   .social { margin-top: auto; display: flex; gap: 18px; }
@@ -97,7 +108,7 @@
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: contain;       /* se ve completa; usa "cover" si prefieres que llene */
+    object-fit: contain;     
   }
   .proyecto h3 { margin: 0 0 4px; font-size: 1.3rem; }
   .proyecto p { margin: 0; color: var(--muted); }
@@ -129,6 +140,18 @@
   }
 </style>
 </head>
+  <div class="cursor"></div>
+<script>
+  const c = document.querySelector('.cursor');
+  document.addEventListener('mousemove', e => {
+    c.style.left = e.clientX + 'px';
+    c.style.top = e.clientY + 'px';
+  });
+  document.querySelectorAll('a, .btn').forEach(el => {
+    el.addEventListener('mouseenter', () => c.classList.add('grande'));
+    el.addEventListener('mouseleave', () => c.classList.remove('grande'));
+  });
+</script>
 <body>
 
 <aside class="sidebar">
