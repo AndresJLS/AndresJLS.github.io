@@ -48,12 +48,9 @@
     color: var(--text);
     text-decoration: none;
   }
- 
+
   .sidebar nav a:hover,
   .sidebar nav a:focus-visible { background: var(--hover); outline: none; }
-  .social { margin-top: auto; display: flex; gap: 18px; }
-  .social a { color: var(--text); text-decoration: none; font-size: 14px; }
-  .social a:hover { text-decoration: underline; }
 
   /* Contenido */
   main { margin-left: 280px; padding: 64px 48px; max-width: 980px; }
@@ -84,7 +81,7 @@
   .proyecto .img {
     flex: 0 0 280px;
     height: 170px;
-    overflow: hidden;      
+    overflow: hidden;
     background: var(--side);
     border-radius: 8px;
   }
@@ -98,13 +95,14 @@
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: contain;     
+    object-fit: contain;
   }
   .proyecto h3 { margin: 0 0 4px; font-size: 1.3rem; }
   .proyecto p { margin: 0; color: var(--muted); }
 
   /* Blog */
   .proyecto .meta { color: var(--muted); font-size: 0.9rem; margin: 0 0 4px; }
+  .proyecto p + p { margin-top: 6px; }
   .proyecto .enlace {
     display: inline-block;
     margin-top: 10px;
@@ -122,7 +120,6 @@
   @media (max-width: 760px) {
     .sidebar { position: static; width: 100%; flex-direction: column; }
     .sidebar img { width: 110px; height: 110px; }
-    .social { margin-top: 12px; }
     main { margin-left: 0; padding: 32px 20px; }
     h1 { font-size: 2.2rem; }
     .proyecto { flex-direction: column; }
@@ -130,7 +127,7 @@
   }
 </style>
 </head>
- 
+
 <body>
 
 <aside class="sidebar">
@@ -148,9 +145,10 @@
 <main>
   <section id="inicio">
     <p class="saludo">Hola, soy</p>
-    <h1>Andres Leyva</h1>
+    <h1>Andres Jovany Leyva Silva</h1>
     <p class="rol">Estudiante de Ingeniería en Sistemas</p>
-    <p>En la actualidad me encuentro cursando la ingenieria en sistemas de informacion, me interesa desarrollarme en el area de ciberseguridad.</p>
+    <p>Puesto al que aspiro: Analista de ciberseguridad.</p>
+    <p>En la actualidad me encuentro cursando la ingenieria en sistemas de informacion, me interesa desarrollarme en el area de ciberseguridad. Puedo programar en Java y Python, crear paginas web sencillas y trabajar con bases de datos.</p>
     <div class="botones">
       <a class="btn" href="#contacto">Contáctame</a>
       <a class="btn borde" href="#cv">Ver mi CV</a>
@@ -204,24 +202,32 @@
 
     <article class="proyecto">
       <div class="img">
-          <img src="img/chan.png" alt="Dis">
+          <img src="img/chan.png" alt="Diseño Chan Adventures">
       </div>
       <div>
         <p class="meta">Figma · Octubre 2026</p>
-        <h3>Nombre de tu diseño</h3>
-        <p>Escribe aquí de qué trata el diseño, qué problema resuelve y qué aprendiste al hacerlo.</p>
+        <h3>Chan Adventures</h3>
+        <p><strong>Descripción:</strong> Diseño de una interfaz con prototipo interactivo hecho en Figma.</p>
+        <p><strong>Requerimientos del cliente:</strong> Una interfaz clara y fácil de usar, que se pudiera probar antes de programarla.</p>
+        <p><strong>¿Cómo se diseñó?:</strong> Primero planeé las pantallas y cómo se pasa de una a otra, y después definí colores y estilo.</p>
+        <p><strong>¿Cómo se implementó?:</strong> Lo armé en Figma y conecté las pantallas para crear un prototipo en el que se puede navegar.</p>
+        <p><strong>Resultado:</strong> Un prototipo funcional que se puede recorrer completo, y aprendí a usar mejor Figma.</p>
         <a class="enlace" href="https://www.figma.com/proto/QtEnQUQvFtdSl5sKFBJPXL/Chan-Adventures-3?node-id=4-2&p=f&t=8bJ5Lo3YlvJwxsVM-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=4%3A2">Ver en Figma →</a>
       </div>
     </article>
 
     <article class="proyecto">
       <div class="img">
-          <img src="img/menu.png" alt="Dise"
+          <img src="img/menu.png" alt="Diseño Menurante">
       </div>
       <div>
-        <p class="meta">Figma · Fecha</p>
-        <h3>Nombre de tu segundo diseño</h3>
-        <p>Descripción breve de este otro proyecto.</p>
+        <p class="meta">Figma · Octubre 2026</p>
+        <h3>Menurante</h3>
+        <p><strong>Descripción:</strong> Diseño de un menú digital para un restaurante, con prototipo interactivo en Figma.</p>
+        <p><strong>Requerimientos del cliente:</strong> Un menú fácil de leer y de navegar para los clientes.</p>
+        <p><strong>¿Cómo se diseñó?:</strong> Organicé los platillos por secciones y cuidé que todo se viera ordenado.</p>
+        <p><strong>¿Cómo se implementó?:</strong> Lo hice en Figma y conecté las pantallas para poder navegar el menú.</p>
+        <p><strong>Resultado:</strong> Un menú digital que se puede probar de principio a fin.</p>
         <a class="enlace" href="https://www.figma.com/proto/Xc3vllx9ilAkaN20aj532c/Menurante?node-id=47-2&p=f&t=mXBUmIMAf571OlFG-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=47%3A2">Ver en Figma →</a>
       </div>
     </article>
@@ -249,10 +255,20 @@
       <p>Desarrollo de un sistema CRUD en equipo para el manejo de empleados y proveedores, un buscador de códigos postales y una práctica de concurrencias en Java, además de diseños de interfaces en Figma.</p>
     </div>
     <h3>Habilidades</h3>
+    <p><strong>Tecnologías:</strong></p>
     <ul class="skills">
       <li>Bases de datos (MySQL)</li>
       <li>Desarrollo web (HTML, CSS)</li>
       <li>Python</li>
+      <li>Java</li>
+      <li>Figma</li>
+      <li>Git y GitHub</li>
+    </ul>
+    <p><strong>Habilidades sociales:</strong></p>
+    <ul class="skills">
+      <li>Trabajo en equipo</li>
+      <li>Comunicación</li>
+      <li>Aprender por mi cuenta</li>
     </ul>
   </section>
 
