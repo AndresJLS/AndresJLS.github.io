@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Andres Leyva | CV</title>
+  <title>Andres Leyva | Portafolio</title>
 <style>
   :root {
     --bg: #ffffff;
@@ -12,6 +12,7 @@
     --text: #111111;
     --muted: #555555;
     --line: #dddddd;
+    --accent: #2f5bea;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -20,7 +21,7 @@
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     color: var(--text);
     background: var(--bg);
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   /* Barra lateral */
@@ -29,7 +30,8 @@
     top: 0; left: 0; bottom: 0;
     width: 280px;
     background: var(--side);
-    padding: 24px 16px;
+    border-right: 1px solid var(--line);
+    padding: 32px 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,44 +41,70 @@
     border-radius: 50%;
     object-fit: cover;
     background: #cfcfcf;
-    margin-bottom: 24px;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .12);
+    margin-bottom: 28px;
   }
   .sidebar nav { width: 100%; }
   .sidebar nav a {
     display: block;
-    padding: 14px 16px;
+    padding: 12px 16px;
+    margin-bottom: 4px;
     color: var(--text);
     text-decoration: none;
+    border-radius: 8px;
+    border-left: 3px solid transparent;
+    transition: background .2s, border-color .2s;
+  }
+  .sidebar nav a:hover,
+  .sidebar nav a:focus-visible {
+    background: var(--hover);
+    border-left-color: var(--accent);
+    outline: none;
   }
 
-  .sidebar nav a:hover,
-  .sidebar nav a:focus-visible { background: var(--hover); outline: none; }
-
   /* Contenido */
-  main { margin-left: 280px; padding: 64px 48px; max-width: 980px; }
-  section { padding-bottom: 56px; }
+  main { margin-left: 280px; padding: 64px 56px; max-width: 1000px; }
+  section { padding-bottom: 64px; }
   h1 { font-size: 3rem; line-height: 1.1; margin: 0 0 8px; }
-  h2 { font-size: 1.9rem; margin: 0 0 16px; }
-  .saludo { margin: 0; font-size: 1.2rem; }
+  h2 {
+    font-size: 1.9rem;
+    margin: 0 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--accent);
+    display: inline-block;
+  }
+  .saludo { margin: 0; font-size: 1.2rem; color: var(--muted); }
   .rol { font-size: 1.7rem; font-weight: 700; margin: 0 0 16px; }
-  .botones { display: flex; gap: 16px; margin-top: 28px; flex-wrap: wrap; }
+  .botones { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
   .btn {
-    padding: 14px 20px;
+    padding: 12px 22px;
     font-weight: 600;
     text-decoration: none;
     color: var(--text);
     background: var(--side);
-    border: 1px solid var(--side);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    transition: background .2s, transform .2s;
   }
   .btn.borde { background: transparent; border-color: var(--text); }
-  .btn:hover { background: var(--hover); }
+  .btn.principal { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn:hover { background: var(--hover); transform: translateY(-2px); }
+  .btn.principal:hover { background: #2448c4; }
 
-  /* Proyectos */
+  /* Proyectos y blog */
   .proyecto {
     display: flex;
-    gap: 20px;
-    padding: 20px 0;
-    border-bottom: 2px solid var(--line);
+    gap: 24px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    transition: box-shadow .2s, transform .2s;
+  }
+  .proyecto:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+    transform: translateY(-2px);
   }
   .proyecto .img {
     flex: 0 0 280px;
@@ -85,40 +113,62 @@
     background: var(--side);
     border-radius: 8px;
   }
-
-  .proyecto .img a {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
+  .proyecto .img a { display: block; width: 100%; height: 100%; }
   .proyecto .img img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: contain;
   }
-  .proyecto h3 { margin: 0 0 4px; font-size: 1.3rem; }
+  .proyecto h3 { margin: 0 0 6px; font-size: 1.3rem; }
   .proyecto p { margin: 0; color: var(--muted); }
-
-  /* Blog */
-  .proyecto .meta { color: var(--muted); font-size: 0.9rem; margin: 0 0 4px; }
+  .proyecto .meta { color: var(--accent); font-size: 0.9rem; font-weight: 600; margin: 0 0 4px; }
   .proyecto p + p { margin-top: 6px; }
+  .proyecto p strong { color: var(--text); }
   .proyecto .enlace {
     display: inline-block;
     margin-top: 10px;
     font-weight: 600;
-    color: var(--text);
+    color: var(--accent);
+    text-decoration: none;
   }
+  .proyecto .enlace:hover { text-decoration: underline; }
 
-  /* CV */
-  .item { margin-bottom: 20px; }
-  .item h3 { margin: 0; font-size: 1.1rem; }
-  .item .fecha { color: var(--muted); font-size: 0.9rem; }
-  ul.skills { padding-left: 20px; }
+  /* Contacto */
+  .contacto { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px; }
+  .contacto-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1 1 260px;
+    padding: 16px 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text);
+    transition: box-shadow .2s, transform .2s, border-color .2s;
+  }
+  .contacto-item:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+  .contacto-item .icono {
+    flex: 0 0 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--side);
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .contacto-item strong { display: block; }
+  .contacto-item small { color: var(--muted); font-size: .9rem; }
 
-  /* Responsive */
+  
   @media (max-width: 760px) {
-    .sidebar { position: static; width: 100%; flex-direction: column; }
+    .sidebar { position: static; width: 100%; border-right: 0; border-bottom: 1px solid var(--line); }
     .sidebar img { width: 110px; height: 110px; }
     main { margin-left: 0; padding: 32px 20px; }
     h1 { font-size: 2.2rem; }
@@ -136,10 +186,9 @@
     <a href="#inicio">Inicio</a>
     <a href="#proyectos">Proyectos</a>
     <a href="#blog">Blog</a>
-    <a href="#cv">CV</a>
+    <a href="cv.pdf">CV</a>
     <a href="#contacto">Contacto</a>
   </nav>
-
 </aside>
 
 <main>
@@ -150,8 +199,8 @@
     <p>Puesto al que aspiro: Analista de ciberseguridad.</p>
     <p>En la actualidad me encuentro cursando la ingenieria en sistemas de informacion, me interesa desarrollarme en el area de ciberseguridad. Puedo programar en Java y Python, crear paginas web sencillas y trabajar con bases de datos.</p>
     <div class="botones">
-      <a class="btn" href="#contacto">Contáctame</a>
-      <a class="btn borde" href="#cv">Ver mi CV</a>
+      <a class="btn principal" href="cv.pdf">Ver mi CV</a>
+      <a class="btn borde" href="#contacto">Contáctame</a>
       <a class="btn borde" href="https://github.com/AndresJLS?tab=repositories">Github</a>
     </div>
   </section>
@@ -233,48 +282,30 @@
     </article>
   </section>
 
-  <section id="cv">
-    <h2>CV</h2>
-    <h3>Educación</h3>
-    <div class="item">
-      <h3>Ingeniería en Sistemas de Información</h3>
-      <div class="fecha">Universidad de Sonora, 2024 - actualidad</div>
-    </div>
-    <div class="item">
-      <h3>Técnico en Programación</h3>
-      <div class="fecha">CECyTES Plantel 1 La Manga, graduado en 2024</div>
-    </div>
-    <div class="item">
-      <h3>Secundaria</h3>
-      <div class="fecha">Secundaria Héroes de Sinaloa</div>
-    </div>
-    <h3>Experiencia académica</h3>
-    <div class="item">
-      <h3>Proyectos de programación y diseño</h3>
-      <div class="fecha">Universidad de Sonora, 2024 - actualidad</div>
-      <p>Desarrollo de un sistema CRUD en equipo para el manejo de empleados y proveedores, un buscador de códigos postales y una práctica de concurrencias en Java, además de diseños de interfaces en Figma.</p>
-    </div>
-    <h3>Habilidades</h3>
-    <p><strong>Tecnologías:</strong></p>
-    <ul class="skills">
-      <li>Bases de datos (MySQL)</li>
-      <li>Desarrollo web (HTML, CSS)</li>
-      <li>Python</li>
-      <li>Java</li>
-      <li>Figma</li>
-      <li>Git y GitHub</li>
-    </ul>
-    <p><strong>Habilidades sociales:</strong></p>
-    <ul class="skills">
-      <li>Trabajo en equipo</li>
-      <li>Comunicación</li>
-      <li>Aprender por mi cuenta</li>
-    </ul>
-  </section>
-
   <section id="contacto">
     <h2>Contacto</h2>
-    <p>Correo: <a href="mailto:andrevwl27@gmail.com">Andrevwl27@gmail.com</a></p>
+    <p>¿Tienes alguna pregunta, una idea o quieres trabajar conmigo en algún proyecto? Escríbeme y con gusto te respondo.</p>
+
+    <div class="contacto">
+      <a class="contacto-item" href="mailto:andrevwl27@gmail.com">
+        <span class="icono">✉</span>
+        <span>
+          <strong>Correo</strong>
+          <small>Andrevwl27@gmail.com</small>
+        </span>
+      </a>
+      <a class="contacto-item" href="https://github.com/AndresJLS?tab=repositories">
+        <span class="icono">{ }</span>
+        <span>
+          <strong>GitHub</strong>
+          <small>github.com/AndresJLS</small>
+        </span>
+      </a>
+    </div>
+
+    <div class="botones">
+      <a class="btn principal" href="mailto:andrevwl27@gmail.com">Enviar un correo</a>
+    </div>
   </section>
 </main>
 
